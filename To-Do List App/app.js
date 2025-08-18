@@ -11,9 +11,10 @@ function addTask() {
         let li = document.createElement('li'); //Crea un nuevo nodo(elemento html)
         li.textContent = inputTex.value //textContent coloca el texto segun el valor proporcionado
         listContainer.appendChild(li);//añade el nodo creado con los valores a nuestro container
+
+        checkTask();
     }
 }
-
 
 //Crea Logica de mensaje
 function message() {
@@ -24,4 +25,14 @@ function message() {
         alerta.classList.add('is-hidden')//classlist.add selecciona nuestra clase y añade
     }, 2000);
 
+}
+
+function checkTask() {
+    listContainer.addEventListener("click", e => {
+
+        e.target.classList.contains("checked")
+            ? e.target.classList.remove('checked')
+            : e.target.classList.add('checked')
+
+    })
 }
